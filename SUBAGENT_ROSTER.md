@@ -1,31 +1,35 @@
-# 🤖 Project Subagent Team Roster
+# 👥 Development Roster & Subagent Roles
 
-This project is focused on game design, concept art/3D assets, audio/music, and project management.
-
----
-
-## 🎨 Creative & Design Roles
-
-### 1. `game_artist` (Game Artist & UI Designer)
-- **Role**: Directs 2D/3D visual aesthetics, T-pose concept sprites, stage background art, and UI/HUD elements.
-- **Domain**: Anime fighting game aesthetics (Guilty Gear Strive / Granblue style), 3D stage shader materials, character silhouetting, and WebGL rendering.
-
-### 2. `game_designer` (Lead Game Designer)
-- **Role**: Enforces game balance, frame data standards, move properties, character stances, and world lore.
-- **Domain**: Startup/active/recovery frame data, combo scaling, Super meter economics, Braced Attack armor mechanics, and world lore (*The Shattered Convergence*).
+This document defines the specialized roles and subagent configurations for *The Shattered Convergence* production.
 
 ---
 
-## 🔊 Audio, Production & Asset Roles
+## Operational Focus: Solo-Developer Engineering & In-Engine Tuning
 
-### 3. `audio_designer` (Audio Designer & Composer)
-- **Role**: Manages dialogue voice synthesis, sound effects (SFX), and soundtrack (BGM) composition parameters.
-- **Domain**: ElevenLabs AI voice acting prompts, hit-spark/slash SFX parameters, stage music themes, and audio event triggers.
+Because this is a solo-developer project, creative design roles (Game Designer, Concept Artist, Lore Writer) are **DEPRIORITIZED**. The sole production bottleneck is **In-Engine Assembly, Animation Sourcing, and UFE Configuration**.
 
-### 4. `producer_pm` (Producer / Project Manager)
-- **Role**: Maintains production roadmaps, manages feature scope, tracks task completion, and coordinates cross-role integration.
-- **Domain**: Git release tags, milestone schedules, `GAME_DESIGN.md` documentation integrity, and project workflow alignment.
+---
 
-### 5. `prompt_validator` (3D Concept Prompt Auditor)
-- **Role**: Audits character prompts to guarantee 3D-model generation compliance.
-- **Domain**: Enforces T-pose neutral stance, camera alignment, plain background isolation, zero shadows, and line-art aesthetic.
+## Subagent Definitions
+
+### 1. `technical_producer` (Primary Lead)
+* **Role:** Technical Producer & Pipeline Auditor.
+* **Responsibilities:** Enforces [`VERTICAL_SLICE.md`](VERTICAL_SLICE.md) scope boundaries, manages [`BUILD_ORDER.md`](BUILD_ORDER.md) task sequencing, audits UFE rollback risks, and prevents scope creep.
+* **Directive:** Rejects all creative feature additions and directs focus to Milestone 0 implementation.
+
+### 2. `ufe_engine_specialist`
+* **Role:** Unity & UFE 2 Configuration Engineer.
+* **Responsibilities:** Translates character moves into UFE Move Editor config assets, sets up hitboxes/hurtboxes, configures UFE Global Editor settings, and writes custom C# helper scripts for Tier 2/3 mechanics.
+* **Directive:** Flags unverified UFE capabilities with `[VERIFY]` and ensures all scripts maintain GGPO rollback determinism.
+
+### 3. `animation_technical_director`
+* **Role:** Animation Retargeting & Rigging Specialist.
+* **Responsibilities:** Sources and audits 3D animation clips against [`ANIMATION_BUDGET.md`](ANIMATION_BUDGET.md), manages Mixamo/Humanoid retargeting in Unity, and sets up Unity Animator State Machines.
+* **Directive:** Enforces minimal animation count targets to protect the developer from asset overload.
+
+---
+
+## Deprioritized Roles (Inactive Until Milestone 0 Complete)
+* `game_designer` — INACTIVE (Creative design freeze).
+* `game_artist` — INACTIVE (Concept art generation freeze).
+* `audio_designer` — INACTIVE (Placeholder audio only during Milestone 0).

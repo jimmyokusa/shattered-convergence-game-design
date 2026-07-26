@@ -1,3 +1,6 @@
+> [!WARNING]
+> **PROVISIONAL FRAME DATA NOTICE:** All frame data values in this document are **untested design hypotheses, not final specifications**. Final frame counts, startup timings, hitstop values, and block advantage numbers will be determined empirically in the Universal Fighting Engine 2 (UFE 2) Move Editor through engine playtesting.
+
 # Character Specification: Zenthos — Prosecutor of the Cinder Flame
 
 **Archetype**: Cinder Flame All-Rounder / Strike-Throw

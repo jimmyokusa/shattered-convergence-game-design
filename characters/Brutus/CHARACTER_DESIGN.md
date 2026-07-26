@@ -1,3 +1,6 @@
+> [!WARNING]
+> **PROVISIONAL FRAME DATA NOTICE:** All frame data values in this document are **untested design hypotheses, not final specifications**. Final frame counts, startup timings, hitstop values, and block advantage numbers will be determined empirically in the Universal Fighting Engine 2 (UFE 2) Move Editor through engine playtesting.
+
 # Character Specification: Brutus — The Tectonic Titan
 
 **Archetype**: Heavy Grappler / Armor Titan (1100 HP)

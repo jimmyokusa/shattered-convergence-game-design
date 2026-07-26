@@ -2031,3 +2031,21 @@ SECTION 12: ELEVENLABS CHARACTER VOICE PERFORMANCE SPECIFICATIONS
    • Persona: Deep, oceanic void captain.
    • ElevenLabs Voice ID: N2lUpW0C55xG3YxW5WZn (Callum - Abyssal Mariner)
    • Intro Line: "In a deep weathered oceanic voice with heavy resonance: 'The abyssal tide rises... drown in the depth of the void!'"
+
+
+---
+
+## 4.5 Known Tuning Risks
+
+The following frame data parameters and mechanical values are flagged as high-risk design hypotheses that are expected to undergo significant modification during in-engine playtesting:
+
+1. **Zenthos — Perfect Draw 2-Frame Motion Input Window (33 ms):**
+   * *Risk:* A 2-frame execution window (33 ms at 60 FPS) is comparable to *Tekken's* Electric Wind God Fist (EWGF). Under GGPO rollback netcode with 2–3 frames of network rollback jitter, a 2-frame tight input window is prone to dropped execution and extreme player frustration online. Expected to be widened to 4–5 frames during engine tuning.
+2. **Melancholia — Thorn Rush 10% Health Self-Damage Cost:**
+   * *Risk:* Deducting 10% max HP for a single move cancel is extremely punitive in a fighting game where total HP is 1000. Players will likely avoid using the signature mechanic altogether out of self-preservation. Expected to be tuned down to 3–5% HP cost or converted to spending Super meter instead.
+3. **Sylas — Dual-Stance Transformation Recovery Frames (18f):**
+   * *Risk:* An 18-frame transformation recovery makes mid-combo stance switching impossible without being punished. Stance switching may feel sluggish and unviable in high-speed matches.
+4. **Brutus — Armored Heavy Attacks (Startup Armor vs. Multi-Hit Sweeps):**
+   * *Risk:* If armor activates on frame 1 of heavy attacks, Brutus can ignore all non-armored pressure. Needs strict armor activation windows (e.g. frames 4–12 only).
+5. **Lyra — Volt Node Intersections Block Advantage (+8f):**
+   * *Risk:* A +8 frame block advantage on laser trap activation allows unescapable blockstrings and guaranteed chip-damage loops.
