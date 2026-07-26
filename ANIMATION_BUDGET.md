@@ -25,5 +25,5 @@ This document aggregates the total animation asset requirements across all eight
 ## Milestone Focus Context
 
 * **Milestone 0 (Vertical Slice — Zenthos Only):**  (28 Universal + 11 Specific = 39 total for full character; 29 in-scope for Milestone 0).
-* **Full Tier 1 Milestone:** .
-* **Full 8-Character Shipped Roster:** .
+* **Full Tier 1 Milestone:** `115 Animations`.
+* **Full 8-Character Shipped Roster:** `341 Animations`.
