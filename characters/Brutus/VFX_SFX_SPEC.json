@@ -1,0 +1,28 @@
+{
+  "character": "Brutus",
+  "theme": "Tectonic Earth & Magma Basalt Eruptions",
+  "vfx": [
+    {
+      "name": "Tectonic Slam (22P)",
+      "type": "Lava Ground Crack Eruption",
+      "texture_atlas": "Emissive lava ground-crack decals & 3D basalt rocks",
+      "hdr_bloom": 6.5,
+      "rgb_hex": "#FF3C00",
+      "point_light_radius": 5.5
+    },
+    {
+      "name": "Cataclysmic Caldera (Level 3 Super)",
+      "type": "Volcanic Magma Chamber Eruption",
+      "texture_atlas": "2048x2048 lava chamber atlas + basalt fragment physics",
+      "hdr_bloom": 10.0,
+      "rgb_hex": "#FF1E00",
+      "point_light_radius": 14.0
+    }
+  ],
+  "sfx": {
+    "cast": "Heavy fist slamming earth + seismic fault line tearing (40Hz sub-bass)",
+    "hit_impact": "Bone-crushing ground slam + erupting magma explosion",
+    "block_impact": "Earthshaking block thud + lava splash sizzle",
+    "whiff": "Heavy stone impact without hitstop"
+  }
+}

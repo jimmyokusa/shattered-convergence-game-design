@@ -1,0 +1,14 @@
+{
+  "name": "Vesper",
+  "epithet": "The Umbral Weaver",
+  "archetype": "Puppet Master / Dual-Entity Offense (900 HP)",
+  "lore": "Banishment into the Void Realm severed Vesper's shadow, birthing Solitude\u2014a semi-autonomous husk of dark matter bound to her soul string.",
+  "appearance": "Gothic veiled sorceress in raven-black silks with silver thread loops and her shadow puppet Solitude.",
+  "unique_mechanic": "Solitude Puppet Commands (Controls independent shadow puppet for pincher sandwich mixups).",
+  "home_stage": {
+    "name": "Eclipse Citadel Catacombs",
+    "setting": "Forgotten umbral temple beneath a gothic city where void rifts bleed through.",
+    "visuals": "Obsidian stone altars, floating void crystals, swirling dark shadow tendrils.",
+    "bgm_style": "Cyberpunk Darkwave / Synthwave with deep sub-bass and gothic vocal chops."
+  }
+}

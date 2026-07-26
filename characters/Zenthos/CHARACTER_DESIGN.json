@@ -1,0 +1,14 @@
+{
+  "name": "Zenthos",
+  "epithet": "Prosecutor of the Cinder Flame",
+  "archetype": "Cinder Flame All-Rounder / Strike-Throw",
+  "lore": "A dogmatic warrior-monk bound to an involuntary curse: his blade manifests black-and-white ethereal flames. He seeks to purge or control the flame before it consumes his soul.",
+  "appearance": "Nordic spellblade wearing black inquisitor robes, white scarf, black leather gauntlets with silver rings. Carries a black flame sword.",
+  "unique_mechanic": "Perfect Draw (2-frame motion input window unlocks hard knockdowns, launchers, and ground bounces).",
+  "home_stage": {
+    "name": "Ashfall Coliseum",
+    "setting": "Ancient obsidian arena carved into the crater rim of Mt. Ignis over cascading magma rivers.",
+    "visuals": "Obsidian stone platform, warrior-monk statues, glowing braziers, smoke particles.",
+    "bgm_style": "Hard Rock / Heavy Metal with blazing electric guitar leads."
+  }
+}

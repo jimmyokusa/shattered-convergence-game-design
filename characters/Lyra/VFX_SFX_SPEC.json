@@ -1,0 +1,28 @@
+{
+  "character": "Lyra",
+  "theme": "High-Voltage Electric Arcs & Plasma",
+  "vfx": [
+    {
+      "name": "Volt Blade (236P)",
+      "type": "Electric Arc Slashes & Anime Sparks",
+      "texture_atlas": "Procedural electrical bolt arcs + cyan/violet hit-sparks",
+      "hdr_bloom": 7.0,
+      "rgb_hex": "#64B4FF",
+      "point_light_radius": 4.0
+    },
+    {
+      "name": "Maelstrom Tempest (Level 3 Super)",
+      "type": "Vertical Thunderstorm Pillar",
+      "texture_atlas": "Fullscreen vertical lightning column atlas + lens flare",
+      "hdr_bloom": 9.5,
+      "rgb_hex": "#8CC8FF",
+      "point_light_radius": 13.0
+    }
+  ],
+  "sfx": {
+    "cast": "Sharp high-voltage spark zaps + plasma buzz (10kHz boost)",
+    "hit_impact": "Electric shock crackle + conductive metal slice",
+    "block_impact": "Electrical discharge fizzle + shield buzz",
+    "whiff": "High-frequency air whip slice"
+  }
+}

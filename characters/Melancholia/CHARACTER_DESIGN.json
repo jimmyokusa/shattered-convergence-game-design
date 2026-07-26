@@ -1,0 +1,14 @@
+{
+  "name": "Melancholia",
+  "epithet": "Empress of the Sanguine Rime",
+  "archetype": "Gothic Frost Sorceress / Cancel-Rushdown",
+  "lore": "High ruler of the Eternal Rime. Her frosted silver rapier controls absolute zero temperatures, using living blood as a catalyst to project deadly thorn-ice.",
+  "appearance": "Dark gothic frost sorceress in silver and navy silk gown, carrying a frosted silver rapier with crimson crystal accents.",
+  "unique_mechanic": "Thorn Rush (Cancels any grounded normal into Thorn Rush for +2 block / +5 hit advantage at the cost of 10% HP, with 50% Grey Health recovery).",
+  "home_stage": {
+    "name": "Glacial Sanctuary of Frozen Tears",
+    "setting": "Gothic cathedral constructed of crystalline eternal ice under an aurora borealis.",
+    "visuals": "Vaulted ice arches, frosted ice-stained glass windows, ice-marble floor, falling snow.",
+    "bgm_style": "Neoclassical Orchestral Metal with solo violin arpeggios and harpsichord."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "character": "Zenthos",
+  "theme": "Cinder Flame & Volcanic Magma",
+  "vfx": [
+    {
+      "name": "Cinder Wave (236P)",
+      "type": "Projectile Fireball",
+      "texture_atlas": "512x512 8-frame Additive flipbook",
+      "particles": "2500 trailing cinder sparks/sec",
+      "hdr_bloom": 4.5,
+      "rgb_hex": "#FF6E0F",
+      "point_light_radius": 4.2
+    },
+    {
+      "name": "Inferno Rising (623P)",
+      "type": "Anti-Air Flame Dragon Column",
+      "texture_atlas": "1024x1024 vertical flame column atlas",
+      "hdr_bloom": 6.0,
+      "rgb_hex": "#FF4B00",
+      "point_light_radius": 6.5
+    },
+    {
+      "name": "Scorched Earth Shatter (Level 3 Super)",
+      "type": "Fullscreen Volcanic Eruption",
+      "texture_atlas": "2048x2048 magma crack decal atlas & screen shockwave",
+      "hdr_bloom": 9.5,
+      "rgb_hex": "#FF2D00",
+      "point_light_radius": 12.5
+    }
+  ],
+  "sfx": {
+    "cast": "Heavy fire whoosh layered with igniting torch snap (800Hz boost)",
+    "hit_impact": "Crisp explosive flame crunch + 60Hz sub-bass thud",
+    "block_impact": "Muffled hiss + metallic guard chime",
+    "whiff": "Rapid rushing hot wind sweep"
+  }
+}

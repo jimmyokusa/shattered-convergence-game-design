@@ -1,0 +1,28 @@
+{
+  "character": "Nereus",
+  "theme": "Hydrodynamic Water Vortices & Tsunami Columns",
+  "vfx": [
+    {
+      "name": "Tidal Column (22P)",
+      "type": "Pressurized Water Geyser Column",
+      "texture_atlas": "Cylinder fluid simulation mesh + water refraction decal",
+      "hdr_bloom": 4.0,
+      "rgb_hex": "#1EA0FF",
+      "point_light_radius": 5.0
+    },
+    {
+      "name": "Abyssal Deluge (Level 3 Super)",
+      "type": "Tsunami Wave Crash & Bioluminescent Foam",
+      "texture_atlas": "Fullscreen tidal wave mesh + glowing sea-foam overlay",
+      "hdr_bloom": 7.5,
+      "rgb_hex": "#00F0FF",
+      "point_light_radius": 12.5
+    }
+  ],
+  "sfx": {
+    "cast": "High-pressure geyser eruption + deep oceanic rush",
+    "hit_impact": "Heavy hydraulic water blast thud",
+    "block_impact": "Hydrostatic pressure buffeting shield",
+    "whiff": "Ocean wave crest splashing"
+  }
+}

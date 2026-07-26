@@ -1,0 +1,14 @@
+{
+  "name": "Ignacia",
+  "epithet": "The Scorching Talon",
+  "archetype": "Pure Rushdown / Rekka Striker (890 HP)",
+  "lore": "Warlord champion of the Pyre Clan in the Cinder Wastes, wielding wild bladed claw flame arts.",
+  "appearance": "Fierce female warrior in feather-patterned crimson armor with ash face paint and bladed fire gauntlets.",
+  "unique_mechanic": "Blaze Rekka (Multi-stage advancing slash series branching into overhead, low sweep, or ignition explosion) & Ember Dash.",
+  "home_stage": {
+    "name": "Brimstone Refinery Rig",
+    "setting": "Offshore geothermal energy rig built over a volcanic ocean ridge.",
+    "visuals": "Catwalks, high-pressure flame stacks, oil derricks, ocean spray on lower beams.",
+    "bgm_style": "Explosive Funk Metal / Breakbeat hybrid with brass stabs and distorted guitar riffs."
+  }
+}

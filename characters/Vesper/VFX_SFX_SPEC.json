@@ -1,0 +1,28 @@
+{
+  "character": "Vesper",
+  "theme": "Umbral Void Threads & Dark Shadow Marionette",
+  "vfx": [
+    {
+      "name": "Shadow Puppet Thread (236P)",
+      "type": "Void-Purple String Ribbons & Obsidian Needles",
+      "texture_atlas": "Glowing void-purple string ribbons + obsidian needles",
+      "hdr_bloom": 4.8,
+      "rgb_hex": "#B432F0",
+      "point_light_radius": 3.2
+    },
+    {
+      "name": "Eclipse Marionette (Level 3 Super)",
+      "type": "Shadow Puppet Guillotine Blade Drop",
+      "texture_atlas": "Colossal shadow puppet projection + void guillotine blade",
+      "hdr_bloom": 8.8,
+      "rgb_hex": "#D21EFF",
+      "point_light_radius": 9.5
+    }
+  ],
+  "sfx": {
+    "cast": "Sinister silk thread snap + dark metallic twang",
+    "hit_impact": "Needles stabbing shadow flesh + whispery void slice",
+    "block_impact": "String plucking barrier ping",
+    "whiff": "Subtle thread slicing air"
+  }
+}

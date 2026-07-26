@@ -1,0 +1,28 @@
+{
+  "character": "Ignacia",
+  "theme": "Crimson Pyro Claws & Combustion Back-Blast",
+  "vfx": [
+    {
+      "name": "Pyro Claw Scratch (236P)",
+      "type": "Triple Crimson Friction Slash",
+      "texture_atlas": "3-lane curved claw slash sprites + friction sparks",
+      "hdr_bloom": 5.5,
+      "rgb_hex": "#FF1E3C",
+      "point_light_radius": 3.6
+    },
+    {
+      "name": "Infernal Cataclysm (Level 3 Super)",
+      "type": "Superheated Napalm Flame Pillar",
+      "texture_atlas": "Dense crimson napalm flame pillar atlas + ground fire",
+      "hdr_bloom": 9.2,
+      "rgb_hex": "#FF0A1E",
+      "point_light_radius": 11.5
+    }
+  ],
+  "sfx": {
+    "cast": "Match-strike friction ignition + claw unsheathe",
+    "hit_impact": "Searing triple slash tear + burning flesh sizzle",
+    "block_impact": "Metal claw grinding against guard",
+    "whiff": "Sharp crimson fire whip swipe"
+  }
+}

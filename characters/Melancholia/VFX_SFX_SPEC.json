@@ -1,0 +1,37 @@
+{
+  "character": "Melancholia",
+  "theme": "Sanguine Rime & Gothic Ice Needles",
+  "vfx": [
+    {
+      "name": "Glacial Thrust (236P)",
+      "type": "Ice Crystal Needle Lunge",
+      "texture_atlas": "Polyhedral ice crystal 3D billboard mesh (180 polys)",
+      "particles": "Diamond dust glint burst",
+      "hdr_bloom": 5.0,
+      "rgb_hex": "#78DCFF",
+      "point_light_radius": 3.8
+    },
+    {
+      "name": "Permafrost Barrier (214P)",
+      "type": "Deployable Ice Shield",
+      "texture_atlas": "Procedural ice wall mesh with refractive frosted glass",
+      "hdr_bloom": 3.8,
+      "rgb_hex": "#3CB4FF",
+      "point_light_radius": 5.0
+    },
+    {
+      "name": "Absolute Zero Execution (Level 3 Super)",
+      "type": "Screen-wide Glacier Monolith Burst",
+      "texture_atlas": "Massive 3D ice monolith meshes with blizzard vignette",
+      "hdr_bloom": 8.8,
+      "rgb_hex": "#00D2FF",
+      "point_light_radius": 11.0
+    }
+  ],
+  "sfx": {
+    "cast": "High-pitch crystal chime + razor-sharp rapier unsheathe",
+    "hit_impact": "Glass-shattering piercing crunch + freeze-frame audio stutter",
+    "block_impact": "Solid ice impact chime + metallic blade ring",
+    "whiff": "Whistling piercing sub-zero wind"
+  }
+}

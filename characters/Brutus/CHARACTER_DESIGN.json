@@ -1,0 +1,14 @@
+{
+  "name": "Brutus",
+  "epithet": "The Tectonic Titan",
+  "archetype": "Heavy Grappler / Armor Titan (1100 HP)",
+  "lore": "Forged from living granite and obsidian in magma chambers beneath the Shattered Peaks to anchor the realm back into stone.",
+  "appearance": "7'8\" stone juggernaut with obsidian armor plates and glowing magma veins radiating through his stone chest.",
+  "unique_mechanic": "Tectonic Armor (Upper-body armor on heavy buttons) & Seismic Slam unblockable command throw.",
+  "home_stage": {
+    "name": "The Ironclad Foundry & Pit",
+    "setting": "Underground steelworks and underground brawl pit beneath active crucibles.",
+    "visuals": "Industrial steel cage, iron chains, steam pressure vents, tipped molten metal ladles.",
+    "bgm_style": "Industrial Electro-Metal with heavy anvil percussion and chugging bass."
+  }
+}

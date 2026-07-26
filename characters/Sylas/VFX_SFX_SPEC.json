@@ -1,0 +1,36 @@
+{
+  "character": "Sylas",
+  "theme": "Sylvan Druid Frost-Rime & Direwolf Aura",
+  "vfx": [
+    {
+      "name": "Rime Staff Sweep (236P)",
+      "type": "Pine-Needle Frost Arc Sweep",
+      "texture_atlas": "Arc blade trail with pine-needle micro-sprites",
+      "hdr_bloom": 3.5,
+      "rgb_hex": "#82D2B4",
+      "point_light_radius": 4.0
+    },
+    {
+      "name": "Feral Surge (236P Wolf)",
+      "type": "Spectral Wolf Lunge & Dual Claw Slashes",
+      "texture_atlas": "Spectral wolf head silhouette mesh + cyan claw slashes",
+      "hdr_bloom": 5.2,
+      "rgb_hex": "#46E6A0",
+      "point_light_radius": 4.5
+    },
+    {
+      "name": "Primal Convergence (Level 3 Super)",
+      "type": "Direwolf Avatar & Forest Frost Explosion",
+      "texture_atlas": "Ethereal direwolf aura projection + frost shockwave atlas",
+      "hdr_bloom": 7.8,
+      "rgb_hex": "#28F0C8",
+      "point_light_radius": 10.0
+    }
+  ],
+  "sfx": {
+    "cast": "Wooden staff whoosh + crystalline frost rustle / Guttural wolf roar",
+    "hit_impact": "Heavy wooden thud + ice crackle / Vicious claw rend",
+    "block_impact": "Solid wooden block + frost scrape",
+    "whiff": "Heavy staff air slice / Beastly lunging swipe"
+  }
+}
