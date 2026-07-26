@@ -16,6 +16,8 @@
 
 ## 📚 Production & Technical Roadmap Files
 
+* [`MILESTONES.md`](MILESTONES.md) — **Comprehensive Production Milestone Plan** (18 asset classes, P0/P1/P2 fidelity ladder, serial dependency graph, M0-M7 milestone definitions).
+* [`ORPHAN_AUDIT.md`](ORPHAN_AUDIT.md) — **Design & Specification Gap Audit** (Unallocated assets, implied asset classes, and unpopulated matrix cells).
 * [`VERTICAL_SLICE.md`](VERTICAL_SLICE.md) — **Milestone 0 Scope Boundary** (Zenthos Mirror Match, explicit in-scope/out-of-scope lists, Definition of Done).
 * [`BUILD_ORDER.md`](BUILD_ORDER.md) — Step-by-step ordered task checklist taking the developer from an empty Unity project to Milestone 0.
 * [`BUILD_TIERS.md`](BUILD_TIERS.md) — Implementation classification (Tiers 1–3) based on UFE cost and rollback risk.
