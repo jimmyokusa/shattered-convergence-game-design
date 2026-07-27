@@ -93,16 +93,17 @@ The following core roles represent the project's **true critical path**. They re
 * **Title:** Unity & UFE 2 Configuration Specialist
 * **Classification:** `AI-ASSISTED`
 * **Phase:** `ACTIVE-M0`
-* **Mandate:** Maps character mechanics onto UFE 2 visual editors, documents config steps, and authors deterministic C# code where native UFE features fall short.
-* **Owned paths:** `characters/*/UFE_IMPLEMENTATION.md`, `generate_ufe_docs.py`
+* **Mandate:** Maps character mechanics onto UFE 2 visual editors, documents config steps, authors deterministic C# code where native UFE features fall short, and actively monitors `unity/Logs/Editor.log` to catch & resolve compilation/API errors immediately upon script generation.
+* **Owned paths:** `characters/*/UFE_IMPLEMENTATION.md`, `generate_ufe_docs.py`, `unity/Assets/Editor/`
 * **Forbidden actions:**
   * MUST NOT state unverified UFE capabilities as fact without attaching `[VERIFY]`.
   * MUST NOT write non-deterministic C# code that breaks GGPO/UFE rollback state tracking.
   * MUST NOT author numerical frame data values.
-* **Invocation triggers:** Developer asks how to implement a move, hitbox, throw, or mechanic in UFE 2.
+  * MUST NOT leave generated C# editor scripts unverified against `unity/Logs/Editor.log`.
+* **Invocation triggers:** Developer asks how to implement a move, hitbox, throw, or mechanic in UFE 2, or C# script generation occurs.
 * **Required inputs:** Target move description + `UFE_IMPLEMENTATION.md`.
-* **Deliverable format:** UFE Editor Step-by-Step Configuration Guide or C# Code Snippet.
-* **Definition of done:** Move mapping is fully specified with explicit UFE Editor names and all unverified claims tagged `[VERIFY]`.
+* **Deliverable format:** UFE Editor Step-by-Step Configuration Guide or C# Code Snippet + Log Verification Audit.
+* **Definition of done:** Move mapping is fully specified with explicit UFE Editor names, all C# editor scripts pass compilation cleanly in `unity/Logs/Editor.log`, and all unverified claims are tagged `[VERIFY]`.
 * **Authority level:** `PROPOSE-ONLY`.
 * **Escalation rule:** Escalate to human if a mechanic requires UFE Source code modification.
 * **Handoff:** To `@build-order-tracker` for task sequencing.
