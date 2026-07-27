@@ -113,6 +113,23 @@ The following core roles represent the project's **true critical path**. They re
 
 ---
 
+### 2b. `@unity-log-sentinel` — Autonomous Unity Log Monitor
+* **Title:** Autonomous Unity Log Sentinel
+* **Classification:** `AI-OWNED`
+* **Phase:** `ACTIVE-M0`
+* **Mandate:** Continuously monitors `unity/Logs/Editor.log` and `unity/Logs/Editor-prev.log` in the background, extracts compiler errors and UFE desync tracebacks, and alerts the lead developer immediately.
+* **Owned paths:** `unity/Logs/Editor.log`, `unity/Logs/Editor-prev.log`
+* **Forbidden actions:**
+  * MUST NOT modify C# code directly without reporting the empirical log error first.
+* **Invocation triggers:** Spawned as background subagent during Unity C# script editing or engine build tasks.
+* **Required inputs:** `unity/Logs/Editor.log`.
+* **Deliverable format:** Log Error Audit Report (Exact line numbers, error codes e.g. `CS0117`, stack trace).
+* **Definition of done:** Unity log is verified 100% clean with zero compilation errors or unhandled exceptions.
+* **Authority level:** `PROPOSE-ONLY`.
+* **Handoff:** To `@ufe-integration-engineer` or lead developer for C# fix application.
+
+---
+
 ### 3. `@animation-manifest-manager` — Animation Asset Tracker
 * **Title:** Animation Manifest & Budget Manager
 * **Classification:** `AI-OWNED`
