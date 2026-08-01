@@ -26,8 +26,6 @@ class VoiceGuide(TypedDict):
     lines: list[VoiceLine]
 
 
-ROSTER = ["Zenthos", "Melancholia", "Sylas", "Brutus", "Lyra", "Vesper", "Ignacia", "Nereus"]
-
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 CHARACTERS_DIR = os.path.join(PROJECT_DIR, "characters")
 

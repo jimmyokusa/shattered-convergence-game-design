@@ -1,11 +1,22 @@
 """Generate UFE 2 engine implementation specs for the full roster."""
 
 import os
+from typing import TypedDict
 
-repo_dir = os.path.dirname(os.path.abspath(__file__))
-char_dir = os.path.join(repo_dir, "characters")
 
-ufe_specs = {
+class UfeSpec(TypedDict):
+    """A character's UFE 2 implementation classification and move mapping."""
+
+    classification: str
+    # (move or mechanic name, implementation type, description)
+    moves: list[tuple[str, str, str]]
+    rollback_note: str
+
+
+REPO_DIR = os.path.dirname(os.path.abspath(__file__))
+CHAR_DIR = os.path.join(REPO_DIR, "characters")
+
+UFE_SPECS: dict[str, UfeSpec] = {
     "Zenthos": {
         "classification": "Native & Configured",
         "moves": [
@@ -160,19 +171,30 @@ ufe_specs = {
     },
 }
 
-for char, data in ufe_specs.items():
-    c_path = os.path.join(char_dir, char, "UFE_IMPLEMENTATION.md")
-    with open(c_path, "w", encoding="utf-8") as f:
-        f.write(f"# UFE 2 Engine Implementation Spec: {char}\n\n")
-        f.write(f"**Implementation Classification:** `{data['classification']}`\n\n")
-        f.write("## 🛠️ Move & Mechanic Mapping\n\n")
-        f.write("| Move / Mechanic | Type | Implementation Description |\n")
-        f.write("| :--- | :--- | :--- |\n")
-        for name, mtype, desc in data["moves"]:
-            f.write(f"| **{name}** | `{mtype}` | {desc} |\n")
 
-        f.write("\n---\n\n")
-        f.write("## ⚠️ Rollback-Determinism Note\n\n")
-        f.write(f"> {data['rollback_note']}\n")
+def generate_ufe_docs() -> None:
+    """Write UFE_IMPLEMENTATION.md into each character's directory."""
+    print("--- Generating UFE 2 Implementation Specifications ---")
+    for char, data in UFE_SPECS.items():
+        char_dir = os.path.join(CHAR_DIR, char)
+        os.makedirs(char_dir, exist_ok=True)
 
-    print(f"Generated UFE_IMPLEMENTATION.md for {char}")
+        c_path = os.path.join(char_dir, "UFE_IMPLEMENTATION.md")
+        with open(c_path, "w", encoding="utf-8") as f:
+            f.write(f"# UFE 2 Engine Implementation Spec: {char}\n\n")
+            f.write(f"**Implementation Classification:** `{data['classification']}`\n\n")
+            f.write("## 🛠️ Move & Mechanic Mapping\n\n")
+            f.write("| Move / Mechanic | Type | Implementation Description |\n")
+            f.write("| :--- | :--- | :--- |\n")
+            for name, mtype, desc in data["moves"]:
+                f.write(f"| **{name}** | `{mtype}` | {desc} |\n")
+
+            f.write("\n---\n\n")
+            f.write("## ⚠️ Rollback-Determinism Note\n\n")
+            f.write(f"> {data['rollback_note']}\n")
+
+        print(f"Generated UFE_IMPLEMENTATION.md for {char}")
+
+
+if __name__ == "__main__":
+    generate_ufe_docs()
