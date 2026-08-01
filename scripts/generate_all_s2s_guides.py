@@ -26,7 +26,8 @@ class VoiceGuide(TypedDict):
     lines: list[VoiceLine]
 
 
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+# This script lives in scripts/; the repo root is one level up.
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHARACTERS_DIR = os.path.join(PROJECT_DIR, "characters")
 
 S2S_GUIDES: dict[str, VoiceGuide] = {

@@ -11,7 +11,8 @@ sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[union-attr]
 ROSTER = ["Zenthos", "Melancholia", "Sylas", "Brutus", "Lyra", "Vesper", "Ignacia", "Nereus"]
 
 PICTURES_DIR = os.path.expanduser("~/Pictures")
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+# This script lives in scripts/; the repo root is one level up.
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOICE_DIR = os.path.join(PROJECT_DIR, "voice_samples")
 CHARACTERS_DIR = os.path.join(PROJECT_DIR, "characters")
 

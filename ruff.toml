@@ -32,10 +32,10 @@ convention = "google"
 # values (lore, appearance, performance tips, move descriptions), never code.
 # Rewrapping prose literals hurts readability and risks altering generated
 # output, so E501 is scoped off for these files only.
-"generate_all_s2s_guides.py" = ["E501"]
-"generate_ufe_docs.py" = ["E501"]
-"store_character_designs.py" = ["E501"]
-"store_vfx_sfx_specs.py" = ["E501"]
+"scripts/generate_all_s2s_guides.py" = ["E501"]
+"scripts/generate_ufe_docs.py" = ["E501"]
+"scripts/store_character_designs.py" = ["E501"]
+"scripts/store_vfx_sfx_specs.py" = ["E501"]
 
 [format]
 quote-style = "double"

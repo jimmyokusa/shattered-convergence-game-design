@@ -44,7 +44,8 @@ class VfxSfxSpec(TypedDict):
     sfx: SfxProfile
 
 
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+# This script lives in scripts/; the repo root is one level up.
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHARACTERS_DIR = os.path.join(PROJECT_DIR, "characters")
 
 VFX_SFX_SPECS: dict[str, VfxSfxSpec] = {

@@ -13,7 +13,8 @@ class UfeSpec(TypedDict):
     rollback_note: str
 
 
-REPO_DIR = os.path.dirname(os.path.abspath(__file__))
+# This script lives in scripts/; the repo root is one level up.
+REPO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHAR_DIR = os.path.join(REPO_DIR, "characters")
 
 UFE_SPECS: dict[str, UfeSpec] = {

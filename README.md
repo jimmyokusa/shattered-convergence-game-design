@@ -8,22 +8,22 @@
 >
 > All development is strictly focused on **Milestone 0: The Vertical Slice** (Zenthos mirror match on Ashfall Coliseum).
 >
-> 📖 **Read the Vertical Slice Specification:** [`VERTICAL_SLICE.md`](VERTICAL_SLICE.md)  
-> 🛠️ **View the Unity Build Order:** [`BUILD_ORDER.md`](BUILD_ORDER.md)  
-> 🏗️ **View Roster Implementation Tiers:** [`BUILD_TIERS.md`](BUILD_TIERS.md)
+> 📖 **Read the Vertical Slice Specification:** [`VERTICAL_SLICE.md`](docs/VERTICAL_SLICE.md)  
+> 🛠️ **View the Unity Build Order:** [`BUILD_ORDER.md`](docs/BUILD_ORDER.md)  
+> 🏗️ **View Roster Implementation Tiers:** [`BUILD_TIERS.md`](docs/BUILD_TIERS.md)
 
 ---
 
 ## 📚 Production & Technical Roadmap Files
 
-* [`MILESTONES.md`](MILESTONES.md) — **Comprehensive Production Milestone Plan** (18 asset classes, P0/P1/P2 fidelity ladder, serial dependency graph, M0-M7 milestone definitions).
-* [`ORPHAN_AUDIT.md`](ORPHAN_AUDIT.md) — **Design & Specification Gap Audit** (Unallocated assets, implied asset classes, and unpopulated matrix cells).
-* [`VERTICAL_SLICE.md`](VERTICAL_SLICE.md) — **Milestone 0 Scope Boundary** (Zenthos Mirror Match, explicit in-scope/out-of-scope lists, Definition of Done).
-* [`BUILD_ORDER.md`](BUILD_ORDER.md) — Step-by-step ordered task checklist taking the developer from an empty Unity project to Milestone 0.
-* [`BUILD_TIERS.md`](BUILD_TIERS.md) — Implementation classification (Tiers 1–3) based on UFE cost and rollback risk.
-* [`ANIMATION_BUDGET.md`](ANIMATION_BUDGET.md) — Project-wide animation clip count aggregate (**341 Animations total; 29 for Milestone 0**).
-* [`STAGE_PERFORMANCE_BUDGET.md`](STAGE_PERFORMANCE_BUDGET.md) — Real-time 60 FPS performance limits (85k tris max, 2048x2048 textures, rollback headroom).
-* [`GAME_DESIGN.md`](GAME_DESIGN.md) — Primary Game Design Bible (Universal mechanics, provisional frame data, lore, Known Tuning Risks).
+* [`MILESTONES.md`](docs/MILESTONES.md) — **Comprehensive Production Milestone Plan** (18 asset classes, P0/P1/P2 fidelity ladder, serial dependency graph, M0-M7 milestone definitions).
+* [`ORPHAN_AUDIT.md`](docs/ORPHAN_AUDIT.md) — **Design & Specification Gap Audit** (Unallocated assets, implied asset classes, and unpopulated matrix cells).
+* [`VERTICAL_SLICE.md`](docs/VERTICAL_SLICE.md) — **Milestone 0 Scope Boundary** (Zenthos Mirror Match, explicit in-scope/out-of-scope lists, Definition of Done).
+* [`BUILD_ORDER.md`](docs/BUILD_ORDER.md) — Step-by-step ordered task checklist taking the developer from an empty Unity project to Milestone 0.
+* [`BUILD_TIERS.md`](docs/BUILD_TIERS.md) — Implementation classification (Tiers 1–3) based on UFE cost and rollback risk.
+* [`ANIMATION_BUDGET.md`](docs/ANIMATION_BUDGET.md) — Project-wide animation clip count aggregate (**341 Animations total; 29 for Milestone 0**).
+* [`STAGE_PERFORMANCE_BUDGET.md`](docs/STAGE_PERFORMANCE_BUDGET.md) — Real-time 60 FPS performance limits (85k tris max, 2048x2048 textures, rollback headroom).
+* [`GAME_DESIGN.md`](docs/GAME_DESIGN.md) — Primary Game Design Bible (Universal mechanics, provisional frame data, lore, Known Tuning Risks).
 
 ---
 
