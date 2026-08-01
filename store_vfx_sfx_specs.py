@@ -1,5 +1,10 @@
 import os
 import json
+import sys
+
+# Generated docs and console output contain emoji; Windows defaults to cp1252,
+# which cannot encode them.
+sys.stdout.reconfigure(encoding="utf-8")
 
 ROSTER = [
     "Zenthos",
@@ -278,12 +283,12 @@ def store_vfx_sfx():
         
         # Save JSON spec
         spec_path = os.path.join(CHARACTERS_DIR, char, "VFX_SFX_SPEC.json")
-        with open(spec_path, "w") as f:
+        with open(spec_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
             
         # Save Markdown spec
         md_path = os.path.join(CHARACTERS_DIR, char, "VFX_SFX_SPEC.md")
-        with open(md_path, "w") as f:
+        with open(md_path, "w", encoding="utf-8") as f:
             f.write(f"# Visual FX (VFX) & Audio FX (SFX) Specification: {char}\n\n")
             f.write(f"**Elemental Theme**: {data['theme']}\n\n")
             f.write("## 💥 Visual Effects (VFX) Elements\n\n")

@@ -1,6 +1,6 @@
 import os
 
-repo_dir = '/home/jimmyok/shattered-convergence-game-design'
+repo_dir = os.path.dirname(os.path.abspath(__file__))
 char_dir = os.path.join(repo_dir, 'characters')
 
 ufe_specs = {
@@ -80,7 +80,7 @@ ufe_specs = {
 
 for char, data in ufe_specs.items():
     c_path = os.path.join(char_dir, char, 'UFE_IMPLEMENTATION.md')
-    with open(c_path, 'w') as f:
+    with open(c_path, 'w', encoding='utf-8') as f:
         f.write(f'# UFE 2 Engine Implementation Spec: {char}\n\n')
         f.write(f'**Implementation Classification:** `{data["classification"]}`\n\n')
         f.write('## 🛠️ Move & Mechanic Mapping\n\n')

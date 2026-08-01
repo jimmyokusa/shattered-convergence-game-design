@@ -1,5 +1,10 @@
 import os
 import shutil
+import sys
+
+# Console output contains emoji; Windows defaults to cp1252, which cannot
+# encode them.
+sys.stdout.reconfigure(encoding="utf-8")
 
 ROSTER = [
     "Zenthos",

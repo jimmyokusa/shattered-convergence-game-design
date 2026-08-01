@@ -1,5 +1,10 @@
 import os
 import json
+import sys
+
+# Generated docs and console output contain emoji; Windows defaults to cp1252,
+# which cannot encode them.
+sys.stdout.reconfigure(encoding="utf-8")
 
 ROSTER = [
     "Zenthos",
@@ -193,7 +198,7 @@ def generate_guides():
         os.makedirs(audio_dir, exist_ok=True)
         
         file_path = os.path.join(audio_dir, "S2S_PERFORMANCE_GUIDE.md")
-        with open(file_path, "w") as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             f.write(f"# Speech-to-Speech (S2S) Voice Guide: {char}\n\n")
             f.write(f"**Vocal Persona & Accent**: {data['voice_type']}\n")
             f.write(f"**Inflection & Emotion Directives**: {data['inflection_notes']}\n\n")

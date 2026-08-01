@@ -1,5 +1,10 @@
 import os
 import json
+import sys
+
+# Generated docs and console output contain emoji; Windows defaults to cp1252,
+# which cannot encode them.
+sys.stdout.reconfigure(encoding="utf-8")
 
 ROSTER = [
     "Zenthos",
@@ -138,12 +143,12 @@ def store_designs():
         
         # Save JSON spec file
         spec_path = os.path.join(char_dir, "CHARACTER_DESIGN.json")
-        with open(spec_path, "w") as f:
+        with open(spec_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
             
         # Save Markdown spec file inside character folder
         md_path = os.path.join(char_dir, "CHARACTER_DESIGN.md")
-        with open(md_path, "w") as f:
+        with open(md_path, "w", encoding="utf-8") as f:
             f.write(f"# Character Specification: {data['name']} — {data['epithet']}\n\n")
             f.write(f"**Archetype**: {data['archetype']}\n\n")
             f.write(f"### 📖 Lore & Faction\n{data['lore']}\n\n")
