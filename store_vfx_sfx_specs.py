@@ -1,26 +1,53 @@
-import os
+"""Generate VFX and SFX specifications (JSON + Markdown) for the full roster."""
+
 import json
+import os
 import sys
+from typing import NotRequired, TypedDict
 
 # Generated docs and console output contain emoji; Windows defaults to cp1252,
-# which cannot encode them.
-sys.stdout.reconfigure(encoding="utf-8")
+# which cannot encode them. sys.stdout is typed as the broader TextIO, which
+# does not expose reconfigure().
+sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[union-attr]
 
-ROSTER = [
-    "Zenthos",
-    "Melancholia",
-    "Sylas",
-    "Brutus",
-    "Lyra",
-    "Vesper",
-    "Ignacia",
-    "Nereus"
-]
+
+class VfxEffect(TypedDict):
+    """Visual effect parameters for a single move."""
+
+    name: str
+    type: str
+    texture_atlas: str
+    # Only specified on 2 of 19 effects, and never rendered into the Markdown
+    # spec -- it reaches the JSON only. Optional rather than backfilled, so no
+    # design values are invented.
+    particles: NotRequired[str]
+    hdr_bloom: float
+    rgb_hex: str
+    point_light_radius: float
+
+
+class SfxProfile(TypedDict):
+    """The three-layer audio profile for a character."""
+
+    cast: str
+    hit_impact: str
+    block_impact: str
+    whiff: str
+
+
+class VfxSfxSpec(TypedDict):
+    """A character's combined visual and audio effect specification."""
+
+    character: str
+    theme: str
+    vfx: list[VfxEffect]
+    sfx: SfxProfile
+
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 CHARACTERS_DIR = os.path.join(PROJECT_DIR, "characters")
 
-VFX_SFX_SPECS = {
+VFX_SFX_SPECS: dict[str, VfxSfxSpec] = {
     "Zenthos": {
         "character": "Zenthos",
         "theme": "Cinder Flame & Volcanic Magma",
@@ -32,7 +59,7 @@ VFX_SFX_SPECS = {
                 "particles": "2500 trailing cinder sparks/sec",
                 "hdr_bloom": 4.5,
                 "rgb_hex": "#FF6E0F",
-                "point_light_radius": 4.2
+                "point_light_radius": 4.2,
             },
             {
                 "name": "Inferno Rising (623P)",
@@ -40,7 +67,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "1024x1024 vertical flame column atlas",
                 "hdr_bloom": 6.0,
                 "rgb_hex": "#FF4B00",
-                "point_light_radius": 6.5
+                "point_light_radius": 6.5,
             },
             {
                 "name": "Scorched Earth Shatter (Level 3 Super)",
@@ -48,15 +75,15 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "2048x2048 magma crack decal atlas & screen shockwave",
                 "hdr_bloom": 9.5,
                 "rgb_hex": "#FF2D00",
-                "point_light_radius": 12.5
-            }
+                "point_light_radius": 12.5,
+            },
         ],
         "sfx": {
             "cast": "Heavy fire whoosh layered with igniting torch snap (800Hz boost)",
             "hit_impact": "Crisp explosive flame crunch + 60Hz sub-bass thud",
             "block_impact": "Muffled hiss + metallic guard chime",
-            "whiff": "Rapid rushing hot wind sweep"
-        }
+            "whiff": "Rapid rushing hot wind sweep",
+        },
     },
     "Melancholia": {
         "character": "Melancholia",
@@ -69,7 +96,7 @@ VFX_SFX_SPECS = {
                 "particles": "Diamond dust glint burst",
                 "hdr_bloom": 5.0,
                 "rgb_hex": "#78DCFF",
-                "point_light_radius": 3.8
+                "point_light_radius": 3.8,
             },
             {
                 "name": "Permafrost Barrier (214P)",
@@ -77,7 +104,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Procedural ice wall mesh with refractive frosted glass",
                 "hdr_bloom": 3.8,
                 "rgb_hex": "#3CB4FF",
-                "point_light_radius": 5.0
+                "point_light_radius": 5.0,
             },
             {
                 "name": "Absolute Zero Execution (Level 3 Super)",
@@ -85,15 +112,15 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Massive 3D ice monolith meshes with blizzard vignette",
                 "hdr_bloom": 8.8,
                 "rgb_hex": "#00D2FF",
-                "point_light_radius": 11.0
-            }
+                "point_light_radius": 11.0,
+            },
         ],
         "sfx": {
             "cast": "High-pitch crystal chime + razor-sharp rapier unsheathe",
             "hit_impact": "Glass-shattering piercing crunch + freeze-frame audio stutter",
             "block_impact": "Solid ice impact chime + metallic blade ring",
-            "whiff": "Whistling piercing sub-zero wind"
-        }
+            "whiff": "Whistling piercing sub-zero wind",
+        },
     },
     "Sylas": {
         "character": "Sylas",
@@ -105,7 +132,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Arc blade trail with pine-needle micro-sprites",
                 "hdr_bloom": 3.5,
                 "rgb_hex": "#82D2B4",
-                "point_light_radius": 4.0
+                "point_light_radius": 4.0,
             },
             {
                 "name": "Feral Surge (236P Wolf)",
@@ -113,7 +140,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Spectral wolf head silhouette mesh + cyan claw slashes",
                 "hdr_bloom": 5.2,
                 "rgb_hex": "#46E6A0",
-                "point_light_radius": 4.5
+                "point_light_radius": 4.5,
             },
             {
                 "name": "Primal Convergence (Level 3 Super)",
@@ -121,15 +148,15 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Ethereal direwolf aura projection + frost shockwave atlas",
                 "hdr_bloom": 7.8,
                 "rgb_hex": "#28F0C8",
-                "point_light_radius": 10.0
-            }
+                "point_light_radius": 10.0,
+            },
         ],
         "sfx": {
             "cast": "Wooden staff whoosh + crystalline frost rustle / Guttural wolf roar",
             "hit_impact": "Heavy wooden thud + ice crackle / Vicious claw rend",
             "block_impact": "Solid wooden block + frost scrape",
-            "whiff": "Heavy staff air slice / Beastly lunging swipe"
-        }
+            "whiff": "Heavy staff air slice / Beastly lunging swipe",
+        },
     },
     "Brutus": {
         "character": "Brutus",
@@ -141,7 +168,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Emissive lava ground-crack decals & 3D basalt rocks",
                 "hdr_bloom": 6.5,
                 "rgb_hex": "#FF3C00",
-                "point_light_radius": 5.5
+                "point_light_radius": 5.5,
             },
             {
                 "name": "Cataclysmic Caldera (Level 3 Super)",
@@ -149,15 +176,15 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "2048x2048 lava chamber atlas + basalt fragment physics",
                 "hdr_bloom": 10.0,
                 "rgb_hex": "#FF1E00",
-                "point_light_radius": 14.0
-            }
+                "point_light_radius": 14.0,
+            },
         ],
         "sfx": {
             "cast": "Heavy fist slamming earth + seismic fault line tearing (40Hz sub-bass)",
             "hit_impact": "Bone-crushing ground slam + erupting magma explosion",
             "block_impact": "Earthshaking block thud + lava splash sizzle",
-            "whiff": "Heavy stone impact without hitstop"
-        }
+            "whiff": "Heavy stone impact without hitstop",
+        },
     },
     "Lyra": {
         "character": "Lyra",
@@ -169,7 +196,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Procedural electrical bolt arcs + cyan/violet hit-sparks",
                 "hdr_bloom": 7.0,
                 "rgb_hex": "#64B4FF",
-                "point_light_radius": 4.0
+                "point_light_radius": 4.0,
             },
             {
                 "name": "Maelstrom Tempest (Level 3 Super)",
@@ -177,15 +204,15 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Fullscreen vertical lightning column atlas + lens flare",
                 "hdr_bloom": 9.5,
                 "rgb_hex": "#8CC8FF",
-                "point_light_radius": 13.0
-            }
+                "point_light_radius": 13.0,
+            },
         ],
         "sfx": {
             "cast": "Sharp high-voltage spark zaps + plasma buzz (10kHz boost)",
             "hit_impact": "Electric shock crackle + conductive metal slice",
             "block_impact": "Electrical discharge fizzle + shield buzz",
-            "whiff": "High-frequency air whip slice"
-        }
+            "whiff": "High-frequency air whip slice",
+        },
     },
     "Vesper": {
         "character": "Vesper",
@@ -197,7 +224,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Glowing void-purple string ribbons + obsidian needles",
                 "hdr_bloom": 4.8,
                 "rgb_hex": "#B432F0",
-                "point_light_radius": 3.2
+                "point_light_radius": 3.2,
             },
             {
                 "name": "Eclipse Marionette (Level 3 Super)",
@@ -205,15 +232,15 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Colossal shadow puppet projection + void guillotine blade",
                 "hdr_bloom": 8.8,
                 "rgb_hex": "#D21EFF",
-                "point_light_radius": 9.5
-            }
+                "point_light_radius": 9.5,
+            },
         ],
         "sfx": {
             "cast": "Sinister silk thread snap + dark metallic twang",
             "hit_impact": "Needles stabbing shadow flesh + whispery void slice",
             "block_impact": "String plucking barrier ping",
-            "whiff": "Subtle thread slicing air"
-        }
+            "whiff": "Subtle thread slicing air",
+        },
     },
     "Ignacia": {
         "character": "Ignacia",
@@ -225,7 +252,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "3-lane curved claw slash sprites + friction sparks",
                 "hdr_bloom": 5.5,
                 "rgb_hex": "#FF1E3C",
-                "point_light_radius": 3.6
+                "point_light_radius": 3.6,
             },
             {
                 "name": "Infernal Cataclysm (Level 3 Super)",
@@ -233,15 +260,15 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Dense crimson napalm flame pillar atlas + ground fire",
                 "hdr_bloom": 9.2,
                 "rgb_hex": "#FF0A1E",
-                "point_light_radius": 11.5
-            }
+                "point_light_radius": 11.5,
+            },
         ],
         "sfx": {
             "cast": "Match-strike friction ignition + claw unsheathe",
             "hit_impact": "Searing triple slash tear + burning flesh sizzle",
             "block_impact": "Metal claw grinding against guard",
-            "whiff": "Sharp crimson fire whip swipe"
-        }
+            "whiff": "Sharp crimson fire whip swipe",
+        },
     },
     "Nereus": {
         "character": "Nereus",
@@ -253,7 +280,7 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Cylinder fluid simulation mesh + water refraction decal",
                 "hdr_bloom": 4.0,
                 "rgb_hex": "#1EA0FF",
-                "point_light_radius": 5.0
+                "point_light_radius": 5.0,
             },
             {
                 "name": "Abyssal Deluge (Level 3 Super)",
@@ -261,31 +288,33 @@ VFX_SFX_SPECS = {
                 "texture_atlas": "Fullscreen tidal wave mesh + glowing sea-foam overlay",
                 "hdr_bloom": 7.5,
                 "rgb_hex": "#00F0FF",
-                "point_light_radius": 12.5
-            }
+                "point_light_radius": 12.5,
+            },
         ],
         "sfx": {
             "cast": "High-pressure geyser eruption + deep oceanic rush",
             "hit_impact": "Heavy hydraulic water blast thud",
             "block_impact": "Hydrostatic pressure buffeting shield",
-            "whiff": "Ocean wave crest splashing"
-        }
-    }
+            "whiff": "Ocean wave crest splashing",
+        },
+    },
 }
 
-def store_vfx_sfx():
+
+def store_vfx_sfx() -> None:
+    """Write VFX_SFX_SPEC.json and VFX_SFX_SPEC.md for every character."""
     print("--- Storing 8-Character VFX & SFX Specifications ---")
     for char, data in VFX_SFX_SPECS.items():
         vfx_dir = os.path.join(CHARACTERS_DIR, char, "vfx")
         sfx_dir = os.path.join(CHARACTERS_DIR, char, "sfx")
         os.makedirs(vfx_dir, exist_ok=True)
         os.makedirs(sfx_dir, exist_ok=True)
-        
+
         # Save JSON spec
         spec_path = os.path.join(CHARACTERS_DIR, char, "VFX_SFX_SPEC.json")
         with open(spec_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
-            
+
         # Save Markdown spec
         md_path = os.path.join(CHARACTERS_DIR, char, "VFX_SFX_SPEC.md")
         with open(md_path, "w", encoding="utf-8") as f:
@@ -299,14 +328,15 @@ def store_vfx_sfx():
                 f.write(f"- **HDR Bloom Multiplier**: `{move['hdr_bloom']}x`\n")
                 f.write(f"- **RGB Color**: `{move['rgb_hex']}`\n")
                 f.write(f"- **Point Light Radius**: `{move['point_light_radius']}m`\n\n")
-                
+
             f.write("## 🔊 Sound Effects (SFX) Audio Profile\n\n")
             f.write(f"- **Cast / Startup Sound**: {data['sfx']['cast']}\n")
             f.write(f"- **Hit Impact Sound**: {data['sfx']['hit_impact']}\n")
             f.write(f"- **Block Impact Sound**: {data['sfx']['block_impact']}\n")
             f.write(f"- **Whiff Sound**: {data['sfx']['whiff']}\n")
-            
+
         print(f"✅ Stored VFX & SFX specifications for [{char}] -> {CHARACTERS_DIR}/{char}/")
+
 
 if __name__ == "__main__":
     store_vfx_sfx()
