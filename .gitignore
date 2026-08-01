@@ -47,17 +47,22 @@ ehthumbs.db
 Desktop.ini
 
 # Build artifacts
+# NOTE: *.obj, *.dll, *.dylib and *.so are deliberately NOT ignored here --
+# they are versioned via Git LFS (see .gitattributes). Unity ships managed and
+# native plugin binaries inside Assets/Plugins/, and *.obj is also a mesh
+# format. Genuine build output already lives in the ignored Library/, Temp/,
+# [Oo]bj/ and [Bb]uild/ directories above.
 *.o
-*.obj
 *.exe
-*.dll
-*.dylib
-*.so
 
 # Package archives
 *.zip
 *.rar
 *.7z
+
+# Python (doc generation scripts)
+__pycache__/
+*.py[cod]
 
 # Local environment
 .env
