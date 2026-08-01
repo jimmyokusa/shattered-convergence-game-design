@@ -1,0 +1,64 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Aa]rtifacts/
+[Uu]nityLockFile
+
+# Visual Studio / IDE
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.swp
+*.swo
+*~
+
+# Rider
+.idea/
+.idea_modules/
+*.sln.iml
+
+# Visual Studio cache directory
+.vs/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.dylib
+*.so
+
+# Package archives
+*.zip
+*.rar
+*.7z
+
+# Local environment
+.env
+.env.local
