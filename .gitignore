@@ -63,6 +63,10 @@ Desktop.ini
 # Python (doc generation scripts)
 __pycache__/
 *.py[cod]
+# Both tools self-ignore via a nested .gitignore; listed here so it does not
+# depend on that.
+.mypy_cache/
+.ruff_cache/
 
 # Local environment
 .env
