@@ -1,0 +1,43 @@
+line-length = 100
+target-version = "py311"
+
+[lint]
+select = [
+  "E",    # pycodestyle errors
+  "F",    # pyflakes
+  "W",    # pycodestyle warnings
+  "I",    # isort (import sorting)
+  "N",    # pep8-naming
+  "UP",   # pyupgrade
+  "B",    # flake8-bugbear
+  "C4",   # flake8-comprehensions
+  "SIM",  # flake8-simplify
+  "ANN",  # flake8-annotations
+  "D",    # pydocstyle
+  "RUF",  # ruff-specific rules
+]
+ignore = [
+  "D203",   # conflicts with D211 (no-blank-line-before-class)
+  "D212",   # conflicts with D213 (multi-line-summary-second-line)
+  "ANN401", # Any is sometimes the honest type
+]
+
+[lint.pydocstyle]
+convention = "google"
+
+[lint.per-file-ignores]
+"tests/**/*.py" = ["ANN", "D"]
+"**/conftest.py" = ["ANN", "D"]
+# The doc generators are data tables: their long lines are all prose design
+# values (lore, appearance, performance tips, move descriptions), never code.
+# Rewrapping prose literals hurts readability and risks altering generated
+# output, so E501 is scoped off for these files only.
+"generate_all_s2s_guides.py" = ["E501"]
+"generate_ufe_docs.py" = ["E501"]
+"store_character_designs.py" = ["E501"]
+"store_vfx_sfx_specs.py" = ["E501"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true

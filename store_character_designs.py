@@ -1,26 +1,43 @@
-import os
+"""Generate per-character design specs (JSON + Markdown) for the full roster."""
+
 import json
+import os
 import sys
+from typing import TypedDict
 
 # Generated docs and console output contain emoji; Windows defaults to cp1252,
-# which cannot encode them.
-sys.stdout.reconfigure(encoding="utf-8")
+# which cannot encode them. sys.stdout is typed as the broader TextIO, which
+# does not expose reconfigure().
+sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[union-attr]
 
-ROSTER = [
-    "Zenthos",
-    "Melancholia",
-    "Sylas",
-    "Brutus",
-    "Lyra",
-    "Vesper",
-    "Ignacia",
-    "Nereus"
-]
+
+class HomeStage(TypedDict):
+    """A character's home fighting stage."""
+
+    name: str
+    setting: str
+    visuals: str
+    bgm_style: str
+
+
+class Design(TypedDict):
+    """A character's full design specification."""
+
+    name: str
+    epithet: str
+    archetype: str
+    lore: str
+    appearance: str
+    unique_mechanic: str
+    home_stage: HomeStage
+
+
+ROSTER = ["Zenthos", "Melancholia", "Sylas", "Brutus", "Lyra", "Vesper", "Ignacia", "Nereus"]
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 CHARACTERS_DIR = os.path.join(PROJECT_DIR, "characters")
 
-DESIGNS = {
+DESIGNS: dict[str, Design] = {
     "Zenthos": {
         "name": "Zenthos",
         "epithet": "Prosecutor of the Cinder Flame",
@@ -32,8 +49,8 @@ DESIGNS = {
             "name": "Ashfall Coliseum",
             "setting": "Ancient obsidian arena carved into the crater rim of Mt. Ignis over cascading magma rivers.",
             "visuals": "Obsidian stone platform, warrior-monk statues, glowing braziers, smoke particles.",
-            "bgm_style": "Hard Rock / Heavy Metal with blazing electric guitar leads."
-        }
+            "bgm_style": "Hard Rock / Heavy Metal with blazing electric guitar leads.",
+        },
     },
     "Melancholia": {
         "name": "Melancholia",
@@ -46,8 +63,8 @@ DESIGNS = {
             "name": "Glacial Sanctuary of Frozen Tears",
             "setting": "Gothic cathedral constructed of crystalline eternal ice under an aurora borealis.",
             "visuals": "Vaulted ice arches, frosted ice-stained glass windows, ice-marble floor, falling snow.",
-            "bgm_style": "Neoclassical Orchestral Metal with solo violin arpeggios and harpsichord."
-        }
+            "bgm_style": "Neoclassical Orchestral Metal with solo violin arpeggios and harpsichord.",
+        },
     },
     "Sylas": {
         "name": "Sylas",
@@ -60,8 +77,8 @@ DESIGNS = {
             "name": "Yggdrasil's Heart (The Ancient Grove)",
             "setting": "Sacred hollow deep within the root canopy of the World Tree.",
             "visuals": "Twisted mossy tree roots, bioluminescent flora, rune stones, floating spirit spores.",
-            "bgm_style": "Ethnic Folk-Fusion with Celtic tribal drums, bamboo flutes, and funk bass."
-        }
+            "bgm_style": "Ethnic Folk-Fusion with Celtic tribal drums, bamboo flutes, and funk bass.",
+        },
     },
     "Brutus": {
         "name": "Brutus",
@@ -74,8 +91,8 @@ DESIGNS = {
             "name": "The Ironclad Foundry & Pit",
             "setting": "Underground steelworks and underground brawl pit beneath active crucibles.",
             "visuals": "Industrial steel cage, iron chains, steam pressure vents, tipped molten metal ladles.",
-            "bgm_style": "Industrial Electro-Metal with heavy anvil percussion and chugging bass."
-        }
+            "bgm_style": "Industrial Electro-Metal with heavy anvil percussion and chugging bass.",
+        },
     },
     "Lyra": {
         "name": "Lyra",
@@ -88,8 +105,8 @@ DESIGNS = {
             "name": "Zephyr Spire Overlook",
             "setting": "Open skyward marble balcony of a floating mountain citadel.",
             "visuals": "Ivory balustrades, fluttering wind banners, soaring airships in sunset clouds.",
-            "bgm_style": "High-BPM Eurobeat / Pop-Fusion with energetic brass and soaring synth leads."
-        }
+            "bgm_style": "High-BPM Eurobeat / Pop-Fusion with energetic brass and soaring synth leads.",
+        },
     },
     "Vesper": {
         "name": "Vesper",
@@ -102,8 +119,8 @@ DESIGNS = {
             "name": "Eclipse Citadel Catacombs",
             "setting": "Forgotten umbral temple beneath a gothic city where void rifts bleed through.",
             "visuals": "Obsidian stone altars, floating void crystals, swirling dark shadow tendrils.",
-            "bgm_style": "Cyberpunk Darkwave / Synthwave with deep sub-bass and gothic vocal chops."
-        }
+            "bgm_style": "Cyberpunk Darkwave / Synthwave with deep sub-bass and gothic vocal chops.",
+        },
     },
     "Ignacia": {
         "name": "Ignacia",
@@ -116,8 +133,8 @@ DESIGNS = {
             "name": "Brimstone Refinery Rig",
             "setting": "Offshore geothermal energy rig built over a volcanic ocean ridge.",
             "visuals": "Catwalks, high-pressure flame stacks, oil derricks, ocean spray on lower beams.",
-            "bgm_style": "Explosive Funk Metal / Breakbeat hybrid with brass stabs and distorted guitar riffs."
-        }
+            "bgm_style": "Explosive Funk Metal / Breakbeat hybrid with brass stabs and distorted guitar riffs.",
+        },
     },
     "Nereus": {
         "name": "Nereus",
@@ -130,22 +147,24 @@ DESIGNS = {
             "name": "The Sunken Trench of Atlantis",
             "setting": "Ancient underwater dome sanctuary situated on the abyssal ocean floor.",
             "visuals": "Greek marble columns, bioluminescent glass dome, sea leviathans gliding in dark ocean.",
-            "bgm_style": "Ambient Techno / Progressive House with smooth synth pads and driving 4-on-the-floor rhythm."
-        }
-    }
+            "bgm_style": "Ambient Techno / Progressive House with smooth synth pads and driving 4-on-the-floor rhythm.",
+        },
+    },
 }
 
-def store_designs():
+
+def store_designs() -> None:
+    """Write CHARACTER_DESIGN.json and CHARACTER_DESIGN.md for every character."""
     print("--- Storing Individual Character & Stage Specifications ---")
     for char, data in DESIGNS.items():
         char_dir = os.path.join(CHARACTERS_DIR, char)
         os.makedirs(char_dir, exist_ok=True)
-        
+
         # Save JSON spec file
         spec_path = os.path.join(char_dir, "CHARACTER_DESIGN.json")
         with open(spec_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
-            
+
         # Save Markdown spec file inside character folder
         md_path = os.path.join(char_dir, "CHARACTER_DESIGN.md")
         with open(md_path, "w", encoding="utf-8") as f:
@@ -154,13 +173,14 @@ def store_designs():
             f.write(f"### 📖 Lore & Faction\n{data['lore']}\n\n")
             f.write(f"### 🎨 Appearance & Aesthetic\n{data['appearance']}\n\n")
             f.write(f"### ⚔️ Unique Signature Mechanic\n{data['unique_mechanic']}\n\n")
-            f.write(f"### 🏟️ Home Fighting Stage\n")
+            f.write("### 🏟️ Home Fighting Stage\n")
             f.write(f"- **Stage Name**: {data['home_stage']['name']}\n")
             f.write(f"- **Setting**: {data['home_stage']['setting']}\n")
             f.write(f"- **Visuals**: {data['home_stage']['visuals']}\n")
             f.write(f"- **BGM Style**: {data['home_stage']['bgm_style']}\n")
-            
+
         print(f"✅ Stored design specifications for [{char}] -> {char_dir}")
+
 
 if __name__ == "__main__":
     store_designs()
